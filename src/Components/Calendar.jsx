@@ -1,15 +1,14 @@
-import dayjs from "dayjs";
-import React, { useState } from "react";
+import React from "react";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import { useRoot } from "../Context/Root";
 import { generateDate, months } from "../util/calenderFunctions";
 import cn from "../util/cn";
 
 
 export default function Calendar() {
+    const { today, setToday, selectDate, setSelectDate, departure, setDeparture } = useRoot();
     const days = ["S", "M", "T", "W", "T", "F", "S"];
-    const currentDate = dayjs();
-    const [today, setToday] = useState(currentDate);
-    const [selectDate, setSelectDate] = useState(currentDate);
+    console.log(departure);
     // {selectDate.toDate().toDateString()}
     return (
         <div className=" w-[340px] bg-white border shadow-md rounded-lg z-30 relative">
@@ -61,7 +60,10 @@ export default function Calendar() {
                                     ? "bg-black text-white"
                                     : "",
                                 "h-10 w-10  grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none"
-                            )} onClick={() => { setSelectDate(date); }}>
+                            )} onClick={() => {
+                                setSelectDate(date); setDeparture(false)
+
+                            }}>
                                     <div className="">
                                         {date.date()}
                                         {/* <p>{(Math.random() * 1000).toFixed()}</p> */}

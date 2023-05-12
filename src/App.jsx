@@ -1,13 +1,11 @@
-import { useState } from 'react';
 import Calendar from './Components/Calendar';
 import Search from './Components/Search';
+import { useRoot } from "./Context/Root";
 
 
 function App() {
-  const [showSearchForm, setShowSearchForm] = useState(false)
-  const [showSearchTo, setShowSearchTo] = useState(false)
-  const [departure, setDeparture] = useState(false)
-  const [returnDate, setReturnDate] = useState(false)
+  const { today, setToday, selectDate, setSelectDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate } = useRoot()
+
   const headFunction = () => {
     setShowSearchForm(false)
     setShowSearchTo(false)
@@ -19,18 +17,21 @@ function App() {
     setShowSearchForm(true)
     setShowSearchTo(false)
     setDeparture(false)
+    setReturnDate(false)
   }
   const handleTo = (e) => {
     e.stopPropagation()
     setShowSearchTo(true)
     setShowSearchForm(false)
     setDeparture(false)
+    setReturnDate(false)
   }
   const handleDeparture = (e) => {
     e.stopPropagation()
     setDeparture(true)
     setShowSearchForm(false)
     setShowSearchTo(false)
+    setReturnDate(false)
 
   }
   const handleReturn = (e) => {
@@ -40,6 +41,15 @@ function App() {
     setDeparture(false)
     setShowSearchTo(false)
   }
+  // const day = selectDate.date()
+  // console.log(selectDate);
+  //selectDate return only date
+  // const day = selectDate.format('DD')
+  // const month = selectDate.format('MMM')
+  // const year = selectDate.format('YYYY')
+  // const dayName = selectDate.format('dddd')
+
+
   return (
     <>
       <div className="min-h-screen bg-black p-10" onClick={headFunction}>
@@ -58,8 +68,10 @@ function App() {
               </div>
             </div>
             <div className="w-1/2 flex">
-              <div className={` w-40 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${departure ? "bg-[#eaf5ff] " : undefined}`} onClick={handleDeparture}>
+              <div className={` w-40 border-r pt-3 px-5 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${departure ? "bg-[#eaf5ff] " : undefined}`} onClick={handleDeparture}>
                 <div className="px-4">Departure</div>
+                <p><span className="text-3xl">
+                  {selectDate.format('DD')}</span></p>
                 {departure && (
                   <Calendar />)}
               </div>
