@@ -5,11 +5,15 @@ import { generateDate, months } from "../util/calenderFunctions";
 import cn from "../util/cn";
 
 
-export default function Calendar() {
-    const { today, setToday, selectDate, setSelectDate, departure, setDeparture } = useRoot();
+export default function Calendar({ type }) {
+
+    const { today, setToday, selectDepartureDate, setSelectDepartureDate, setDeparture, setReturnDate, setSelectReturnDate } = useRoot();
     const days = ["S", "M", "T", "W", "T", "F", "S"];
-    console.log(departure);
-    // {selectDate.toDate().toDateString()}
+    const handelClose = (e) => {
+        e.stopPropagation()
+        setDeparture(false)
+        setReturnDate(false)
+    }
     return (
         <div className=" w-[340px] bg-white border shadow-md rounded-lg z-30 relative">
             <div className="flex justify-between items-center px-4 mt-4">
@@ -47,23 +51,30 @@ export default function Calendar() {
                 {generateDate(today.month(), today.year()).map(
                     ({ date, currentMonth, today }, index) => {
                         return (
-                            <div key={index} className="p-2 text-center h-10 grid place-content-center text-sm border-t"
+                            <div
+                                onClick={handelClose}
+                                key={index} className="p-2 text-center h-10 grid place-content-center text-sm border-t"
                             >  <h1 className={cn(
                                 currentMonth ? "" : "text-gray-400",
                                 today
                                     ? "bg-red-600 text-white"
                                     : "",
-                                selectDate
+                                selectDepartureDate
                                     .toDate()
                                     .toDateString() ===
                                     date.toDate().toDateString()
                                     ? "bg-black text-white"
                                     : "",
                                 "h-10 w-10  grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none"
-                            )} onClick={() => {
-                                setSelectDate(date); setDeparture(false)
+                            )} onClick={(e) => {
+                                if (type === "start") {
+                                    setSelectDepartureDate(date)
+                                } else if (type === "end") {
+                                    setSelectReturnDate(date)
+                                }
 
-                            }}>
+                            }
+                            }>
                                     <div className="">
                                         {date.date()}
                                         {/* <p>{(Math.random() * 1000).toFixed()}</p> */}
@@ -75,7 +86,5 @@ export default function Calendar() {
                 )}
             </div>
         </div>
-
-
     );
 }

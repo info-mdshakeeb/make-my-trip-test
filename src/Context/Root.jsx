@@ -6,14 +6,20 @@ const Root = ({ children }) => {
     //date picker
     const currentDate = dayjs();
     const [today, setToday] = useState(currentDate);
-    const [selectDate, setSelectDate] = useState(currentDate);
+    const [selectDepartureDate, setSelectDepartureDate] = useState(currentDate);
+    const [selectReturnDate, setSelectReturnDate] = useState(false);
+
+
+
     //search form
     const [showSearchForm, setShowSearchForm] = useState(false)
     const [showSearchTo, setShowSearchTo] = useState(false)
     const [departure, setDeparture] = useState(false)
     const [returnDate, setReturnDate] = useState(false)
+
+
     const value = {
-        today, setToday, selectDate, setSelectDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate
+        today, setToday, selectDepartureDate, setSelectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, setSelectReturnDate
     }
     return (
         <root.Provider value={value}>

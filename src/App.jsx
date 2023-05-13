@@ -4,7 +4,8 @@ import { useRoot } from "./Context/Root";
 
 
 function App() {
-  const { today, setToday, selectDate, setSelectDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate } = useRoot()
+  const { today, setToday, selectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate } = useRoot()
+
 
   const headFunction = () => {
     setShowSearchForm(false)
@@ -32,7 +33,6 @@ function App() {
     setShowSearchForm(false)
     setShowSearchTo(false)
     setReturnDate(false)
-
   }
   const handleReturn = (e) => {
     e.stopPropagation()
@@ -41,15 +41,6 @@ function App() {
     setDeparture(false)
     setShowSearchTo(false)
   }
-  // const day = selectDate.date()
-  // console.log(selectDate);
-  //selectDate return only date
-  // const day = selectDate.format('DD')
-  // const month = selectDate.format('MMM')
-  // const year = selectDate.format('YYYY')
-  // const dayName = selectDate.format('dddd')
-
-
   return (
     <>
       <div className="min-h-screen bg-black p-10" onClick={headFunction}>
@@ -70,15 +61,27 @@ function App() {
             <div className="w-1/2 flex">
               <div className={` w-40 border-r pt-3 px-5 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${departure ? "bg-[#eaf5ff] " : undefined}`} onClick={handleDeparture}>
                 <div className="px-4">Departure</div>
-                <p><span className="text-3xl">
-                  {selectDate.format('DD')}</span></p>
+                <p><span className="text-3xl font-bold">
+                  {selectDepartureDate.format('DD')}</span>
+                  <span>{selectDepartureDate.format('MMM')}'</span>
+                  <span>{selectDepartureDate.format('YYYY')}</span>
+                  <br />
+                  <span>{selectDepartureDate.format('dddd')}</span>
+                </p>
                 {departure && (
-                  <Calendar />)}
+                  <Calendar type={"start"} />)}
               </div>
               <div className={` w-40 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${returnDate ? "bg-[#eaf5ff] " : undefined}`} onClick={handleReturn}>
                 <div className="px-4">Return</div>
+                {selectReturnDate ? <p><span className="text-3xl font-bold">
+                  {selectReturnDate.format('DD')}</span>
+                  <span>{selectReturnDate.format('MMM')}'</span>
+                  <span>{selectReturnDate.format('YYYY')}</span>
+                  <br />
+                  <span>{selectReturnDate.format('dddd')}</span>
+                </p> : <p>Choose Return Date</p>}
                 {returnDate && (
-                  <Calendar />)}
+                  <Calendar type={"end"} />)}
               </div>
               {/* <div className={` flex-1 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${returnDate ? "bg-[#eaf5ff] " : undefined}`} onClick={handleDeparture}>
                 <div className="px-4">Return</div>
