@@ -3,6 +3,11 @@ import React, { createContext, useContext, useState } from 'react';
 export const root = createContext();
 const Root = ({ children }) => {
 
+    // form start
+    const [locationForm, setLocationForm] = useState({})
+    const [locationTo, setLocationTo] = useState({})
+
+
     //Calendar state
     //date picker
     const currentDate = dayjs();
@@ -45,7 +50,7 @@ const Root = ({ children }) => {
 
     const value = {
         today, setToday, selectDepartureDate, setSelectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, setSelectReturnDate, showTraveler, setShowTraveler, totalTraveler, setTotalTraveler, handelTotalTravel, adultsTravelerExtra, setAdultsTravelerExtra, adultsTraveler, setAdultsTraveler, childrenTravelerExtra, setChildrenTravelerExtra, childrenTraveler, setChildrenTraveler, infantsTravelerExtra, setInfantsTravelerExtra, infantsTraveler, setInfantsTraveler, ticketClass, setTicketClass,
-        childError, setChildError
+        childError, setChildError, locationForm, setLocationForm, locationTo, setLocationTo
     }
     return (
         <root.Provider value={value}>

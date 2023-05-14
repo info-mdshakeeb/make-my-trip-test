@@ -1,3 +1,5 @@
+import formLocation from '../public/formLocation.json';
+import toLocation from '../public/toLocation.json';
 import Calendar from './Components/Calendar';
 import Search from './Components/Search';
 import Traveler from './Components/Traveler';
@@ -5,8 +7,7 @@ import { useRoot } from "./Context/Root";
 
 
 function App() {
-  const { selectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, showTraveler, setShowTraveler, totalTraveler, ticketClass, adultsTraveler, infantsTraveler } = useRoot()
-
+  const { selectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, showTraveler, setShowTraveler, totalTraveler, ticketClass, adultsTraveler, infantsTraveler, locationForm, locationTo } = useRoot()
 
   const headFunction = () => {
     setShowSearchForm(false)
@@ -63,13 +64,21 @@ function App() {
             <div className="w-1/2 flex">
               <div className={`w-1/2 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${showSearchForm ? "bg-[#eaf5ff] " : undefined}`} onClick={handleForm}>
                 <div className="px-4">From</div>
+                <div className="px-3">
+                  <p className='text-3xl font-bold'>{locationForm?.countryName}</p>
+                  <p className='text-gray-600'>{locationForm?.airportLocation}</p>
+                </div>
                 {showSearchForm && (
-                  <Search />)}
+                  <Search type={"form"} data={formLocation.data} />)}
               </div>
               <div className={`w-1/2 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff]  transition duration-400 ease-in-out  ${showSearchTo ? "bg-[#eaf5ff] " : undefined}`} onClick={handleTo}>
                 <div className="px-4">To</div>
+                <div className="px-3">
+                  <p className='text-3xl font-bold'>{locationTo?.countryName}</p>
+                  <p className='text-gray-600'>{locationTo?.airportLocation}</p>
+                </div>
                 {showSearchTo && (
-                  <Search />)}
+                  <Search type={"to"} data={toLocation?.data} />)}
               </div>
             </div>
             <div className="w-1/2 flex">
@@ -110,15 +119,10 @@ function App() {
                   {showTraveler && (
                     <Traveler />)}
                 </div>
-
-
               </div>
-
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   )

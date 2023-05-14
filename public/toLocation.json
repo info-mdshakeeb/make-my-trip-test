@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "countryName": "Canada",
+      "airportLocation": "Toronto",
+      "sortForm": "CAN"
+    },
+    {
+      "countryName": "United States",
+      "airportLocation": "New York",
+      "sortForm": "USA"
+    },
+    {
+      "countryName": "United Kingdom",
+      "airportLocation": "London",
+      "sortForm": "UK"
+    },
+    {
+      "countryName": "Germany",
+      "airportLocation": "Berlin",
+      "sortForm": "GER"
+    },
+    {
+      "countryName": "Australia",
+      "airportLocation": "Sydney",
+      "sortForm": "AUS"
+    },
+    {
+      "countryName": "France",
+      "airportLocation": "Paris",
+      "sortForm": "FRA"
+    },
+    {
+      "countryName": "China",
+      "airportLocation": "Beijing",
+      "sortForm": "CHN"
+    },
+    {
+      "countryName": "Brazil",
+      "airportLocation": "Rio de Janeiro",
+      "sortForm": "BRA"
+    },
+    {
+      "countryName": "India",
+      "airportLocation": "Delhi",
+      "sortForm": "IND"
+    },
+    {
+      "countryName": "Japan",
+      "airportLocation": "Tokyo",
+      "sortForm": "JPN"
+    }
+  ]
+}

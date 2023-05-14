@@ -1,0 +1,79 @@
+{
+  "data": [
+    {
+      "countryName": "France",
+      "airportLocation": "Paris",
+      "sortForm": "FRA"
+    },
+    {
+      "countryName": "China",
+      "airportLocation": "Beijing",
+      "sortForm": "CHN"
+    },
+    {
+      "countryName": "Brazil",
+      "airportLocation": "Rio de Janeiro",
+      "sortForm": "BRA"
+    },
+    {
+      "countryName": "India",
+      "airportLocation": "Delhi",
+      "sortForm": "IND"
+    },
+    {
+      "countryName": "Japan",
+      "airportLocation": "Tokyo",
+      "sortForm": "JPN"
+    },
+    {
+      "countryName": "Russia",
+      "airportLocation": "Moscow",
+      "sortForm": "RUS"
+    },
+    {
+      "countryName": "South Africa",
+      "airportLocation": "Johannesburg",
+      "sortForm": "RSA"
+    },
+    {
+      "countryName": "Argentina",
+      "airportLocation": "Buenos Aires",
+      "sortForm": "ARG"
+    },
+    {
+      "countryName": "Mexico",
+      "airportLocation": "Mexico City",
+      "sortForm": "MEX"
+    },
+    {
+      "countryName": "Egypt",
+      "airportLocation": "Cairo",
+      "sortForm": "EGY"
+    },
+    {
+      "countryName": "Italy",
+      "airportLocation": "Rome",
+      "sortForm": "ITA"
+    },
+    {
+      "countryName": "Spain",
+      "airportLocation": "Madrid",
+      "sortForm": "ESP"
+    },
+    {
+      "countryName": "Greece",
+      "airportLocation": "Athens",
+      "sortForm": "GRE"
+    },
+    {
+      "countryName": "Thailand",
+      "airportLocation": "Bangkok",
+      "sortForm": "THA"
+    },
+    {
+      "countryName": "Turkey",
+      "airportLocation": "Istanbul",
+      "sortForm": "TUR"
+    }
+  ]
+}
