@@ -5,7 +5,7 @@ import { useRoot } from "./Context/Root";
 
 
 function App() {
-  const { selectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, showTraveler, setShowTraveler, totalTraveler } = useRoot()
+  const { selectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, showTraveler, setShowTraveler, totalTraveler, ticketClass, adultsTraveler, infantsTraveler } = useRoot()
 
 
   const headFunction = () => {
@@ -56,8 +56,8 @@ function App() {
     setShowTraveler(true)
   }
   return (
-    <>
-      <div className="min-h-screen bg-black p-10" onClick={headFunction}>
+    <div className='bg-black p-10'>
+      <div className="min-h-screen  max-w-[85%] mx-auto" onClick={headFunction}>
         <div className="h-96 bg-white  border rounded-md shadow-md flex items-center px-10">
           <div className="h-28 w-full rounded-lg border flex ">
             <div className="w-1/2 flex">
@@ -74,7 +74,7 @@ function App() {
             </div>
             <div className="w-1/2 flex">
               <div className={` w-40 border-r pt-3 px-5 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${departure ? "bg-[#eaf5ff] " : undefined}`} onClick={handleDeparture}>
-                <div className="px-4">Departure</div>
+                <div className="">Departure</div>
                 <p><span className="text-3xl font-bold">
                   {selectDepartureDate.format('DD')}</span>
                   <span>{selectDepartureDate.format('MMM')}'</span>
@@ -85,8 +85,8 @@ function App() {
                 {departure && (
                   <Calendar type={"start"} />)}
               </div>
-              <div className={` w-40 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${returnDate ? "bg-[#eaf5ff] " : undefined}`} onClick={handleReturn}>
-                <div className="px-4">Return</div>
+              <div className={` w-40 border-r pt-4 px-5 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${returnDate ? "bg-[#eaf5ff] " : undefined}`} onClick={handleReturn}>
+                <div className="">Return</div>
                 {selectReturnDate ? <p><span className="text-3xl font-bold">
                   {selectReturnDate.format('DD')}</span>
                   <span>{selectReturnDate.format('MMM')}'</span>
@@ -97,18 +97,30 @@ function App() {
                 {returnDate && (
                   <Calendar type={"end"} />)}
               </div>
-              <div className={`  w-72 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${showTraveler ? "bg-[#eaf5ff] " : undefined}`} onClick={handleTraveler}>
-                <div className="px-4">Travellers & Class</div>
-                <p><span className="text-3xl font-bold">{totalTraveler}</span> Traveler
+              <div className={` w-52  pt-4  px-5 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out   ${showTraveler ? "bg-[#eaf5ff] " : undefined}`} onClick={handleTraveler}>
+                <p className="">Travellers & Class</p>
+                <p><span className="text-3xl font-bold">{totalTraveler}</span> Traveler <br />
+                  <span className='text-xs'>{ticketClass} </span>
                 </p>
-                {showTraveler && (
-                  <Traveler />)}
+                {adultsTraveler < infantsTraveler ?
+                  <div className=" relative top-4">
+                    <p className='text-xs bg-red-300 text-red-700'>Number of infants cannot be more than adults</p>
+                  </div> : null}
+                <div className={`${adultsTraveler < infantsTraveler ? '-mt-[90px]' : '-mt-14'}`}>
+                  {showTraveler && (
+                    <Traveler />)}
+                </div>
+
+
               </div>
+
             </div>
           </div>
+
         </div>
+
       </div>
-    </>
+    </div>
   )
 }
 

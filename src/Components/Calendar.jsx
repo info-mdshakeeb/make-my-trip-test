@@ -15,7 +15,7 @@ export default function Calendar({ type }) {
         setReturnDate(false)
     }
     return (
-        <div className=" w-[340px] bg-white border shadow-md rounded-lg z-30 relative">
+        <div className={`w-[340px] bg-white border shadow-md rounded-lg z-30 relative  -ml-5 ${!selectReturnDate ? "-mt-[45px]" : "-mt-[56px]"} `}>
             <div className="flex justify-between items-center px-4 mt-4">
                 <h1 className="select-none font-semibold">
                     {months[today.month()]}, {today.year()}

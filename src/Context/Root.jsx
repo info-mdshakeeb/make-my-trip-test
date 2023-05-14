@@ -33,6 +33,8 @@ const Root = ({ children }) => {
     const [selectReturnDate, setSelectReturnDate] = useState(false);
     const [departure, setDeparture] = useState(false)
 
+    //child error :
+    const [childError, setChildError] = useState(false)
     // class 
     const [ticketClass, setTicketClass] = useState("Economy/Premium Economy")
 
@@ -42,7 +44,8 @@ const Root = ({ children }) => {
     const [returnDate, setReturnDate] = useState(false)
 
     const value = {
-        today, setToday, selectDepartureDate, setSelectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, setSelectReturnDate, showTraveler, setShowTraveler, totalTraveler, setTotalTraveler, handelTotalTravel, adultsTravelerExtra, setAdultsTravelerExtra, adultsTraveler, setAdultsTraveler, childrenTravelerExtra, setChildrenTravelerExtra, childrenTraveler, setChildrenTraveler, infantsTravelerExtra, setInfantsTravelerExtra, infantsTraveler, setInfantsTraveler, ticketClass, setTicketClass
+        today, setToday, selectDepartureDate, setSelectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, setSelectReturnDate, showTraveler, setShowTraveler, totalTraveler, setTotalTraveler, handelTotalTravel, adultsTravelerExtra, setAdultsTravelerExtra, adultsTraveler, setAdultsTraveler, childrenTravelerExtra, setChildrenTravelerExtra, childrenTraveler, setChildrenTraveler, infantsTravelerExtra, setInfantsTravelerExtra, infantsTraveler, setInfantsTraveler, ticketClass, setTicketClass,
+        childError, setChildError
     }
     return (
         <root.Provider value={value}>
