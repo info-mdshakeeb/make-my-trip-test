@@ -41,7 +41,6 @@ const Traveler = () => {
                         APPLY
                     </button>
                 </div>
-
             }
             <div className=" w-full flex justify-end text-sm">
                 {adultsTraveler >= infantsTraveler ?

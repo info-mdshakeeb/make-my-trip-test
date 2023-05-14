@@ -7,15 +7,14 @@ import cn from "../util/cn";
 
 export default function Calendar({ type }) {
 
-    const { today, setToday, selectDepartureDate, setSelectDepartureDate, setDeparture, setReturnDate, setSelectReturnDate, selectReturnDate } = useRoot();
+    const { today, setToday, selectDepartureDate, setSelectDepartureDate, setDeparture, setReturnDate, setSelectReturnDate, selectReturnDate, departure } = useRoot();
     const days = ["S", "M", "T", "W", "T", "F", "S"];
     const handelClose = (e) => {
-        e.stopPropagation()
-        setDeparture(false)
-        setReturnDate(false)
+        e.stopPropagation(); setDeparture(false); setReturnDate(false)
     }
     return (
-        <div className={`w-[340px] bg-white border shadow-md rounded-lg z-30 relative  -ml-5 ${!selectReturnDate ? "-mt-[45px]" : "-mt-[56px]"} `}>
+        <div className={`w-[340px] bg-white border shadow-md rounded-lg z-30 relative  -ml-5 ${!selectReturnDate ? "-mt-[45px]" : "-mt-[56px]"} 
+        ${departure ? "-mt-[56px]" : null}`}>
             <div className="flex justify-between items-center px-4 mt-4">
                 <h1 className="select-none font-semibold">
                     {months[today.month()]}, {today.year()}
@@ -50,11 +49,10 @@ export default function Calendar({ type }) {
             <div className=" grid grid-cols-7 ">
                 {generateDate(today.month(), today.year()).map(
                     ({ date, currentMonth, today }, index) => {
-                        return (
-                            <div
-                                onClick={handelClose}
-                                key={index} className="p-2 text-center h-10 grid place-content-center text-sm border-t"
-                            >  <h1 className={cn(
+                        return (<div
+                            onClick={handelClose}
+                            key={index} className="p-2 text-center h-10 grid place-content-center text-sm border-t">
+                            <h1 className={cn(
                                 currentMonth ? "" : "text-gray-400",
                                 today
                                     ? "bg-red-600 text-white"
@@ -68,15 +66,27 @@ export default function Calendar({ type }) {
                                 "h-10 w-10  grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none"
                             )} onClick={(e) => {
                                 if (type === "start") {
-                                    setSelectDepartureDate(date)
-                                } else if (type === "end") { setSelectReturnDate(date) }
+                                    //must be greater than return date
+                                    if (selectReturnDate && date > selectReturnDate) {
+                                        alert("must be greater than return date")
+                                        return
+                                    } else { setSelectDepartureDate(date) }
+                                } else if (type === "end") {
+                                    if (date < selectDepartureDate) {
+                                        alert("must be less than departure date")
+                                        return
+                                    } else {
+                                        setSelectReturnDate(date)
+                                    }
+
+                                }
                             }}>
-                                    <div className="">
-                                        {date.date()}
-                                        {/* <p>{(Math.random() * 1000).toFixed()}</p> */}
-                                    </div>
-                                </h1>
-                            </div>
+                                <div className="">
+                                    {date.date()}
+                                    {/* <p>{(Math.random() * 1000).toFixed()}</p> */}
+                                </div>
+                            </h1>
+                        </div>
                         );
                     }
                 )}

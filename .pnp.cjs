@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:18.2.0"],\
             ["react-icons", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:4.8.0"],\
+            ["react-toastify", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:9.1.2"],\
             ["tailwindcss", "npm:3.3.2"],\
             ["vite", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:4.3.5"]\
           ],\
@@ -1304,6 +1305,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/clean-stack-npm-2.2.0-a8ce435a5c-2ac8cd2b2f.zip/node_modules/clean-stack/",\
           "packageDependencies": [\
             ["clean-stack", "npm:2.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["clsx", [\
+        ["npm:1.2.1", {\
+          "packageLocation": "./.yarn/cache/clsx-npm-1.2.1-77792dc182-30befca801.zip/node_modules/clsx/",\
+          "packageDependencies": [\
+            ["clsx", "npm:1.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2897,6 +2907,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:18.2.0"],\
             ["react-icons", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:4.8.0"],\
+            ["react-toastify", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:9.1.2"],\
             ["tailwindcss", "npm:3.3.2"],\
             ["vite", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:4.3.5"]\
           ],\
@@ -3661,6 +3672,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/react-refresh-npm-0.14.0-78ef5eeb73-dc69fa8c99.zip/node_modules/react-refresh/",\
           "packageDependencies": [\
             ["react-refresh", "npm:0.14.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-toastify", [\
+        ["npm:9.1.2", {\
+          "packageLocation": "./.yarn/cache/react-toastify-npm-9.1.2-b3ba16a74b-0b21851bbb.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "npm:9.1.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:9.1.2", {\
+          "packageLocation": "./.yarn/__virtual__/react-toastify-virtual-729044f5f8/0/cache/react-toastify-npm-9.1.2-b3ba16a74b-0b21851bbb.zip/node_modules/react-toastify/",\
+          "packageDependencies": [\
+            ["react-toastify", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:9.1.2"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["@types/react-dom", "npm:18.2.4"],\
+            ["clsx", "npm:1.2.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:ac1aa6ebda549884cc2ad5c0f83c302ae9c3a1480be3b1b9692efc705129f94e6fcb86d76617c30cff63b8821b51926444ade574ef03ac5efd2bb7b54929f225#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
