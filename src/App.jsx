@@ -1,10 +1,11 @@
 import Calendar from './Components/Calendar';
 import Search from './Components/Search';
+import Traveler from './Components/Traveler';
 import { useRoot } from "./Context/Root";
 
 
 function App() {
-  const { today, setToday, selectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate } = useRoot()
+  const { selectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, showTraveler, setShowTraveler, totalTraveler } = useRoot()
 
 
   const headFunction = () => {
@@ -12,6 +13,7 @@ function App() {
     setShowSearchTo(false)
     setDeparture(false)
     setReturnDate(false)
+    setShowTraveler(false)
   }
   const handleForm = (e) => {
     e.stopPropagation()
@@ -19,6 +21,7 @@ function App() {
     setShowSearchTo(false)
     setDeparture(false)
     setReturnDate(false)
+    setShowTraveler(false)
   }
   const handleTo = (e) => {
     e.stopPropagation()
@@ -26,6 +29,7 @@ function App() {
     setShowSearchForm(false)
     setDeparture(false)
     setReturnDate(false)
+    setShowTraveler(false)
   }
   const handleDeparture = (e) => {
     e.stopPropagation()
@@ -33,6 +37,7 @@ function App() {
     setShowSearchForm(false)
     setShowSearchTo(false)
     setReturnDate(false)
+    setShowTraveler(false)
   }
   const handleReturn = (e) => {
     e.stopPropagation()
@@ -40,6 +45,15 @@ function App() {
     setShowSearchForm(false)
     setDeparture(false)
     setShowSearchTo(false)
+    setShowTraveler(false)
+  }
+  const handleTraveler = (e) => {
+    e.stopPropagation()
+    setReturnDate(false)
+    setShowSearchForm(false)
+    setDeparture(false)
+    setShowSearchTo(false)
+    setShowTraveler(true)
   }
   return (
     <>
@@ -83,11 +97,13 @@ function App() {
                 {returnDate && (
                   <Calendar type={"end"} />)}
               </div>
-              {/* <div className={` flex-1 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${returnDate ? "bg-[#eaf5ff] " : undefined}`} onClick={handleDeparture}>
-                <div className="px-4">Return</div>
-                {departure && (
-                  <Calendar />)}
-              </div> */}
+              <div className={`  w-72 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${showTraveler ? "bg-[#eaf5ff] " : undefined}`} onClick={handleTraveler}>
+                <div className="px-4">Travellers & Class</div>
+                <p><span className="text-3xl font-bold">{totalTraveler}</span> Traveler
+                </p>
+                {showTraveler && (
+                  <Traveler />)}
+              </div>
             </div>
           </div>
         </div>

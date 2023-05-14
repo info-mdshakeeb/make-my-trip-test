@@ -7,7 +7,7 @@ import cn from "../util/cn";
 
 export default function Calendar({ type }) {
 
-    const { today, setToday, selectDepartureDate, setSelectDepartureDate, setDeparture, setReturnDate, setSelectReturnDate } = useRoot();
+    const { today, setToday, selectDepartureDate, setSelectDepartureDate, setDeparture, setReturnDate, setSelectReturnDate, selectReturnDate } = useRoot();
     const days = ["S", "M", "T", "W", "T", "F", "S"];
     const handelClose = (e) => {
         e.stopPropagation()
@@ -69,12 +69,8 @@ export default function Calendar({ type }) {
                             )} onClick={(e) => {
                                 if (type === "start") {
                                     setSelectDepartureDate(date)
-                                } else if (type === "end") {
-                                    setSelectReturnDate(date)
-                                }
-
-                            }
-                            }>
+                                } else if (type === "end") { setSelectReturnDate(date) }
+                            }}>
                                     <div className="">
                                         {date.date()}
                                         {/* <p>{(Math.random() * 1000).toFixed()}</p> */}
