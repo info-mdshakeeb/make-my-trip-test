@@ -15,11 +15,8 @@ const Categories = () => {
                             if (item === "one way") {
                                 setShowWithCategories(false)
                                 return
-                            }
-                            setShowWithCategories(true)
-                        }
-                        }
-
+                            } setShowWithCategories(true)
+                        }}
                             className={`flex items-center cursor-pointer  ${active === item ? "bg-[#eaf5ff] " : ""} px-2 rounded-full`} key={i}>
                             <div className={` ${active === item ? "bg-blue-500  " : ""} gap-3
                             h-4 w-4 rounded-full border mr-1 flex items-center justify-center `} >

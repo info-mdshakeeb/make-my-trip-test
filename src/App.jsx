@@ -8,8 +8,10 @@ import Traveler from './Components/Traveler';
 import { useRoot } from "./Context/Root";
 
 function App() {
+  // load all sate from root context :
   const { selectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, showTraveler, setShowTraveler, totalTraveler, ticketClass, adultsTraveler, infantsTraveler, locationForm, locationTo, showWithCategories, setActive, setShowWithCategories } = useRoot()
 
+  // handle show and hide search form :
   const headFunction = () => {
     setShowSearchForm(false)
     setShowSearchTo(false)
@@ -59,15 +61,20 @@ function App() {
     setShowSearchTo(false)
     setShowTraveler(true)
   }
-
   return (
     <div className="h-screen bg-white" onClick={headFunction}>
       <div className='bg-[url(./assets/download.webp)] object-fill bg-no-repeat h-[550px] p-10' >
         <div className=" container  mx-auto px-[60px] py-[40px]" >
           <div className="h-80 bg-white  border rounded-md shadow-md flex flex-col items-center justify-center px-10">
+            {/* categories section  */}
             <Categories />
+            {/* categories section end  */}
+
+            {/* form section */}
             <div className="h-28 w-full rounded-lg border flex ">
+              {/* first part form and to  */}
               <div className="w-1/2 flex">
+                {/* form section  start */}
                 <div className={`w-1/2 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${showSearchForm ? "bg-[#eaf5ff] " : undefined}`} onClick={handleForm}>
                   <div className="px-4">From</div>
                   <div className="px-3">
@@ -77,6 +84,9 @@ function App() {
                   {showSearchForm && (
                     <Search type={"form"} data={formLocation.data} />)}
                 </div>
+                {/* form section  end */}
+
+                {/* to section  start */}
                 <div className={`w-1/2 border-r pt-4 cursor-pointer hover:bg-[#eaf5ff]  transition duration-400 ease-in-out  ${showSearchTo ? "bg-[#eaf5ff] " : undefined}`} onClick={handleTo}>
                   <div className="px-4">To</div>
                   <div className="px-3">
@@ -86,8 +96,13 @@ function App() {
                   {showSearchTo && (
                     <Search type={"to"} data={toLocation?.data} />)}
                 </div>
+                {/* to section  end */}
               </div>
+              {/* first part form and to end  */}
+
+              {/* second part departure and return and totalTraveler  */}
               <div className="w-1/2 flex">
+                {/* departure section  start */}
                 <div className={` w-40 border-r pt-3 px-5 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${departure ? "bg-[#eaf5ff] " : undefined}`} onClick={handleDeparture}>
                   <div className="">Departure
                     <IoIosArrowDown className="inline-block ml-2 text-blue-500" />
@@ -102,6 +117,9 @@ function App() {
                   {departure && (
                     <Calendar type={"start"} />)}
                 </div>
+                {/* departure section  end */}
+
+                {/* return section start */}
                 <div className={` w-40 border-r pt-4 px-5 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out  ${returnDate ? "bg-[#eaf5ff] " : undefined}`} onClick={handleReturn}>
                   <div className="">Return
                     <IoIosArrowDown className="inline-block ml-2 text-blue-500" />
@@ -116,6 +134,8 @@ function App() {
                   {returnDate && (
                     <Calendar type={"end"} />)}
                 </div>
+                {/* return section end */}
+                {/* totalTraveler section start */}
                 <div className={` w-52  pt-4  px-5 cursor-pointer hover:bg-[#eaf5ff] transition duration-400 ease-in-out   ${showTraveler ? "bg-[#eaf5ff] " : undefined}`} onClick={handleTraveler}>
                   <p className="">Travellers & Class
                     <IoIosArrowDown className="inline-block ml-2 text-blue-500" /></p>
@@ -131,8 +151,13 @@ function App() {
                       <Traveler />)}
                   </div>
                 </div>
+                {/* totalTraveler section end */}
               </div>
+              {/* second part departure and return and totalTraveler end  */}
             </div>
+            {/* form section end */}
+
+            {/* Fare Type section */}
             <div className="flex h-16 mt-6 w-full justify-between">
               <div className="">
                 <p>Select A Fare Type:</p>
@@ -141,6 +166,7 @@ function App() {
                 Trending Searches:
               </div>
             </div>
+            {/* Fare Type section end */}
           </div>
 
         </div>
