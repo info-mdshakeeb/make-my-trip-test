@@ -4,9 +4,21 @@ export const root = createContext();
 const Root = ({ children }) => {
 
     // form start
-    const [locationForm, setLocationForm] = useState({})
-    const [locationTo, setLocationTo] = useState({})
+    const [locationForm, setLocationForm] = useState({
+        "countryName": "France",
+        "airportLocation": "Paris",
+        "sortForm": "FRA"
+    })
+    const [locationTo, setLocationTo] = useState({
+        "countryName": "Canada",
+        "airportLocation": "Toronto",
+        "sortForm": "CAN"
+    })
 
+
+    // categories
+    const [active, setActive] = useState("one way")
+    const [showWithCategories, setShowWithCategories] = useState(false)
 
     //Calendar state
     //date picker
@@ -35,7 +47,9 @@ const Root = ({ children }) => {
 
     //totalTraveler
     const [selectDepartureDate, setSelectDepartureDate] = useState(currentDate);
-    const [selectReturnDate, setSelectReturnDate] = useState(false);
+    // return data must be after departure Date
+    const [selectReturnDate, setSelectReturnDate] = useState(currentDate.add(1, 'day'));
+
     const [departure, setDeparture] = useState(false)
 
     //child error :
@@ -50,7 +64,7 @@ const Root = ({ children }) => {
 
     const value = {
         today, setToday, selectDepartureDate, setSelectDepartureDate, showSearchForm, setShowSearchForm, showSearchTo, setShowSearchTo, departure, setDeparture, returnDate, setReturnDate, selectReturnDate, setSelectReturnDate, showTraveler, setShowTraveler, totalTraveler, setTotalTraveler, handelTotalTravel, adultsTravelerExtra, setAdultsTravelerExtra, adultsTraveler, setAdultsTraveler, childrenTravelerExtra, setChildrenTravelerExtra, childrenTraveler, setChildrenTraveler, infantsTravelerExtra, setInfantsTravelerExtra, infantsTraveler, setInfantsTraveler, ticketClass, setTicketClass,
-        childError, setChildError, locationForm, setLocationForm, locationTo, setLocationTo
+        childError, setChildError, locationForm, setLocationForm, locationTo, setLocationTo, active, setActive, showWithCategories, setShowWithCategories
     }
     return (
         <root.Provider value={value}>
